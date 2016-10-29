@@ -1,0 +1,22 @@
+        BufferedReader br = null;
+        int lineCount=0;
+        try {
+            br = new BufferedReader(new InputStreamReader(new FileInputStream("tom5_oktmo_2.csv"), "utf-8"));
+            String s;
+            while ((s=br.readLine()) !=null ) {
+                lineCount++;
+                System.out.println(s);
+                if (lineCount==20) break; // пока частично
+            }
+        } 
+        catch (IOException ex) {
+            System.out.println("Reading error in line "+lineCount);
+            ex.printStackTrace();
+        }
+        finally {
+            try {
+                br.close();
+            } catch (IOException ex) {
+                System.out.println("Can not close");
+            }
+        }
